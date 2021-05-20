@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 from getbook import get_a_book
+from getbookslink import get_books_links
 
 """Script to scrape the website 'books.toscrape.com'"""
 
@@ -45,61 +46,22 @@ def get_category(url):
                          'review_rating', 'image_url'])
 
 
-def get_books_links(url):
-
-    url_book_path = 'http://books.toscrape.com/catalogue/'
-    # use to define the link of each book
-
-    response = requests.get(url)
-    if response.ok:
-
-        soup = BeautifulSoup(response.content, 'html.parser')
-        books_number = soup.form.strong.text
-        #number of books in the category
-
-        category = soup.find('h1').text
-        h = soup.find_all('h3')
-        next = soup.find('li', {'class': 'next'})
-
-        #to create the link of the book
-        for a in h:
-            for link in a:
-                links = link.get('href').replace('../../../', '')
-                books_urls.append(url_book_path + links)
-
-
-        #if next page exist
-        if next:
-
-            for link in next.find_all('a'):
-                next_link = link.get('href')
-
-
-                for i in range(51):
-                    next_path = 'http://books.toscrape.com/catalogue/category/books/{}_{}/'.format(category.lower().replace(' ', '-'), str(i))
-                    # use to create a path if there is a next page of result                                                         #category index
-
-                    next_page = next_path + next_link
-                    #create next page url
-                    get_books_links(next_page)
-
-        else:
-            print('il y a "{}" livres dans la catégorie "{}".'.format(books_number, category))
-
-
 get_category(url)
+#get all category links and create a csvfile for each category
 
 del category_urls[0]
+#we dont need the main page
 
 for url in category_urls:
-    get_books_links(url)
+    get_books_links(url, books_urls)
+#Get all books link in one category
 
 print('il y a "{}" livres sur le site Bookstoscrape et "{}" catégories'.format(len(books_urls), len(category_urls)))
 # to check if i have all 1000 books
 
 for url in books_urls:
     get_a_book(url)
-
+#get book informations and write them in his category csvfile
 
 
 
