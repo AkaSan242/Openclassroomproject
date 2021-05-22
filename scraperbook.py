@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
+import wget
 
 
 url = 'http://books.toscrape.com/catalogue/forever-and-forever-the-courtship-of-henry-longfellow-and-fanny-appleton_894/index.html'
@@ -45,6 +46,7 @@ def get_a_book(url):
         product_page_url = url
         image = soup.img['src'].replace('../../', '')
         image_url = url_i + image
+        wget.download(image_url, 'booksimages')
         category = a[2].text
 
         #load data on csv file
