@@ -10,11 +10,11 @@ Things you have to do before execute the code:
 
 Install Python =<3
 
-Create a virtual environment by run 'python -m venv env' in your work directory with the terminal
+Create a virtual environment by run `python -m venv env` in your work directory with the terminal
 
-Activate the environment by run 'source env/bin/activate'
+Activate the environment by run `source env/bin/activate`
 
-Download requirements.txt and install the requires packages by run 'pip install -r requirements.txt'
+Download requirements.txt and install the requires packages by run `pip install -r requirements.txt`
 
 Download this 3 scripts:
                         
@@ -24,6 +24,8 @@ Download this 3 scripts:
                         
                         -getbookslink.py
                         
+Create a directory 'csvfiles' the csvfiles will be write inside
+                        
 Create a directory 'booksimages' like that all books images will not be mixed with csvfiles (to keep your directory clean, yes good directory matter lol don't thank me)
 
 "by the way 'booksimages' is a convention i made you can choose another name but if you do open 'getbook.py' and change the name inside the fonction at the line
@@ -32,7 +34,7 @@ Create a directory 'booksimages' like that all books images will not be mixed wi
                         
 ## Usage
 
-To execute the application run 'python bookstoscrape.py'
+To execute the application run `python bookstoscrape.py`
 
 Step 1 the application will search all categories on the website and print the number of the all books for each category
 
