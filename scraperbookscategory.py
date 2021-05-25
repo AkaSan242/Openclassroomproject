@@ -78,12 +78,12 @@ def get_a_book(url):
         product_page_url = url
         image = soup.img['src'].replace('../../', '')
         image_url = url_i + image
-        wget.download(image_url, 'booksimages')
+        wget.download(image_url, 'onecategoryimage/{}.jpg'.format(title.replace('/', '')))
         category = a[2].text
 
 
         #load on csv file
-        with open('onecategory.csv','a', newline='', encoding='utf-8-sig') as books:
+        with open('onecategorycsvfile/onecategory.csv','a', newline='', encoding='utf-8-sig') as books:
             bookswriter = csv.writer(books, delimiter=',', dialect='excel')
 
             bookswriter.writerow([product_page_url, upc,
@@ -104,7 +104,7 @@ print('il y a "{}" livres dans books urls.'.format(len(books_urls)))
 
 
 # load on csv file
-with open('onecategory.csv', 'w', newline='', encoding='utf-8-sig') as books:
+with open('onecategorycsvfile/onecategory.csv', 'w', newline='', encoding='utf-8-sig') as books:
     bookswriter = csv.writer(books, delimiter=',', dialect='excel')
 
     # to create the Headers of the csv file
