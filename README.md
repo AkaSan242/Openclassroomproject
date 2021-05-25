@@ -18,7 +18,7 @@ Download requirements.txt and install the requires packages by run `pip install 
 
 Download this 3 scripts:
                         
-                        -booktoscrape.py
+                        -bookstoscrape.py
                         
                         -getbook.py
                         
