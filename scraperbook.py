@@ -11,7 +11,7 @@ url_i = 'http://books.toscrape.com/'
 #to define the path for the url of book image
 
 #create the headers of csvfile
-with open('onebook.csv', 'w', newline='', encoding='utf-8-sig') as books:
+with open('onebookcsvfile/onebook.csv', 'w', newline='', encoding='utf-8-sig') as books:
         bookswriter = csv.writer(books, delimiter=',', dialect='excel')
 
         bookswriter.writerow(
@@ -46,11 +46,11 @@ def get_a_book(url):
         product_page_url = url
         image = soup.img['src'].replace('../../', '')
         image_url = url_i + image
-        wget.download(image_url, 'booksimages')
+        wget.download(image_url, 'onebookimage/{}.jpg'.format(title.replace('/', '')))
         category = a[2].text
 
         #load data on csv file
-        with open('onebook.csv', 'a', newline='', encoding='utf-8-sig') as books:
+        with open('onebookcsvfile/onebook.csv', 'a', newline='', encoding='utf-8-sig') as books:
             bookswriter = csv.writer(books, delimiter=',', dialect='excel')
 
             bookswriter.writerow([product_page_url, upc,
