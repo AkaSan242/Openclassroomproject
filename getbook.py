@@ -1,8 +1,10 @@
-"""Script de la fonction get_a_book"""
 import requests
 from bs4 import BeautifulSoup
 import csv
 import wget
+
+"""Script de la fonction get_a_book"""
+
 
 
 
@@ -32,12 +34,12 @@ def get_a_book(url):
         product_page_url = url
         image = soup.img['src'].replace('../../', '')
         image_url = url_i + image
-        wget.download(image_url, 'booksimages')
+        wget.download(image_url, 'booksimages/{}.jpg'.format(title.replace('/', '')))
         category = a[2].text
         csvfile = '{}.csv'.format(category)
 
         #load on csv file
-        with open(csvfile, 'a', newline='', encoding='utf-8-sig') as books:
+        with open('csvfiles/{}'.format(csvfile), 'a', newline='', encoding='utf-8-sig') as books:
             bookswriter = csv.writer(books, delimiter=',', dialect='excel')
 
             bookswriter.writerow([product_page_url, upc,
