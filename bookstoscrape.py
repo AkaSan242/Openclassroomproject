@@ -5,6 +5,7 @@ import wget
 from getbook import get_a_book
 from getbookslink import get_books_links
 
+
 """Script to scrape the website 'books.toscrape.com'"""
 
 url = 'http://books.toscrape.com/index.html'
@@ -35,7 +36,7 @@ def get_category(url):
 
         #create csvfile for all categories
         for i in range(len(ul)):
-            with open('{}.csv'.format(ul[i].text.strip()), 'w', newline='', encoding='utf-8-sig') as books:
+            with open('csvfiles/{}.csv'.format(ul[i].text.strip()), 'w', newline='', encoding='utf-8-sig') as books:
                 bookswriter = csv.writer(books, delimiter=',', dialect='excel', quoting=csv.QUOTE_ALL)
 
                 # to create the Headers of the csv file
@@ -57,12 +58,12 @@ for url in category_urls:
     get_books_links(url, books_urls)
 #Get all books link in one category
 
-print('il y a "{}" livres sur le site Bookstoscrape et "{}" catégories'.format(len(books_urls), len(category_urls)))
-# to check if i have all 1000 books
-
 for url in books_urls:
     get_a_book(url)
 #get book informations and write them in his category csvfile
+
+print('il y a "{}" livres sur le site Bookstoscrape et "{}" catégories'.format(len(books_urls), len(category_urls)))
+# to check if i have all 1000 books
 
 
 
