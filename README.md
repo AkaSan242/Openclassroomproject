@@ -14,7 +14,12 @@ Create a virtual environment by run `python -m venv env` in your work directory 
 
 Activate the environment by run `source env/bin/activate`
 
-Download all files from the directory 'Bookscrap' 
+Download :
+
+          -bookscrap.py
+          -bookscraplib
+          -requirements.txt
+          
 
 Install the requires packages by run `pip install -r requirements.txt`
                         
@@ -47,13 +52,13 @@ Please make sure to update tests as appropriate.
 
 ## More
 
-You can use 'Bookscrap' for just one book or just one category too if you want you just have to download the directory made for.
+You can use 'Bookscrap' for just one book or just one category too if you want you just have to download the script made for.
 
-For the one book version go on the website copy the url of the book you want and paste it on the script 'scraperbook.py' in 
+For the one book version go on the website copy the url of the book you want and paste it on the script 'bookscrapbook.py' in 
 
 url = 'yourbookurl'
 
-Same thing if you take the category version copy the link in 'scraperbookscategory.py'
+Same thing if you take the category version copy the link in 'bookscrapcategory.py'
 
 The installation is the same the difference is if you use the one book version you have to run `python scraperbook.py` 
 and `python scraperbookscategory.py` if you use the category version.
