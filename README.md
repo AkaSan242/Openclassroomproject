@@ -17,7 +17,7 @@ Activate the environment by run `source env/bin/activate`
 Download :
 
           -bookscrap.py
-          -bookscraplib
+          -bookscraplib.py
           -requirements.txt
           
 
