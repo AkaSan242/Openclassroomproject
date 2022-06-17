@@ -43,12 +43,10 @@ Step 3 the application will get all books informations , write them on their cat
 
 Final step now you have a csvfile for all books of each category and a directory with all images in your work directory.
 
-## Contributing
+## Contribution
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
+[Luc Aka-Evy
+](https://github.com/Luc-Aka-Evy)
 
 ## More
 
